@@ -23,7 +23,8 @@ class DynamicArray:
     def remove(self,idx):
         if idx < 0 or idx > self.len:
             raise IndexError
-        self.array = self.array[:idx] + self.array[idx+1:]
+        for i in range(idx,self.len - 1):
+            self.array[i] = self.array[i+1]
         self.len -= 1
     def __len__(self):
         return self.len
